@@ -14,11 +14,15 @@ function Qoshilish({
     <>
       <div>
         {madal && (
-          <div onClick={() => setMadal(false)} className="bg-slate-200 p-32  ">
+          <div
+            onClick={() => setMadal(false)}
+            className="bg-slate-200 p-32 bg-opacity-20 fixed inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out"
+          >
             <div
               onClick={(e) => e.stopPropagation()}
-              className=" m-auto text-center bg-blue-200 h-[350px] pt-20 w-[300px] rounded"
+              className="m-auto text-center modal bg-blue-200 h-[350px] pt-20 w-[300px] relative rounded shadow-lg transform scale-95 transition-transform duration-300 ease-in-out"
             >
+        
               <div>
                 <p>ism</p>
                 <input
@@ -77,11 +81,16 @@ function Qoshilish({
       {stateValyu.map((itme) => (
         <div
           key={itme.id}
-          className=" flex w-[500px] border border-blue-950 justify-between p-3"
+          className=" m-auto flex w-[500px] border border-blue-950 justify-between p-3"
         >
-          <p className=" border border-blue-950  px-2">{itme.name}</p>
-          <p className=" border border-blue-950  px-2">{itme.surname}</p>
-          <p className=" border border-blue-950  px-2">{itme.age}</p>
+          <table class="border-collapse  w-full">
+            <thead>
+              <td>{itme.name}</td>
+              <td>{itme.surname}</td>
+              <td>{itme.age}</td>
+            </thead>
+          </table>
+
           <button onClick={() => delet(itme.id)} className="  text-2xl">
             x
           </button>
